@@ -3,7 +3,7 @@
 [discord]: https://discord.gg/bloom
 [release]: https://github.com/etil2jz/Sakura/releases
 
-<img src="https://bloom.host/assets/images/petal-logo.png" alt="sakura_logo" width="80" height="80">
+<img src="sakura-logo.webp" alt="sakura_logo" width="80" height="80">
 
 # Sakura Performance Minecraft JAR
 

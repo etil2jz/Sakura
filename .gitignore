@@ -1,0 +1,9 @@
+.gradle/
+.idea/
+
+sakura-api/
+sakura-server/
+
+build-data/
+build/
+run/
