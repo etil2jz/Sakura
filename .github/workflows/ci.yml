@@ -1,0 +1,33 @@
+name: CI
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+      - uses: actions/setup-java@v3.4.1
+        with:
+          distribution: 'temurin'
+          java-version: '18'
+          cache: 'gradle'
+      - name: Patch and build
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "no-reply@github.com"
+          chmod +x gradlew
+          ./gradlew applyPatches --stacktrace
+          ./gradlew createReobfPaperclipJar --stacktrace
+      - name: Archive and release
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: sakura-paperclip-1.18.2-R0.1-SNAPSHOT
+          path: build/libs/sakura-paperclip-1.18.2-R0.1-SNAPSHOT-reobf.jar
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          automatic_release_tag: '1.18.2'
+          prerelease: false
+          title: 'Sakura 1.18.2'
+          files: build/libs/sakura-paperclip-1.18.2-R0.1-SNAPSHOT-reobf.jar
