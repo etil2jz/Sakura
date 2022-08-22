@@ -26,6 +26,7 @@ jobs:
           path: build/libs/sakura-paperclip-1.18.2-R0.1-SNAPSHOT-reobf.jar
       - uses: marvinpinto/action-automatic-releases@latest
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: '1.18.2'
           prerelease: false
           title: 'Sakura 1.18.2'
