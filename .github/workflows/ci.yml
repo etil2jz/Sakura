@@ -20,12 +20,11 @@ jobs:
           chmod +x gradlew
           ./gradlew applyPatches --stacktrace
           ./gradlew createReobfPaperclipJar --stacktrace
-      - name: Archive and release
-        uses: actions/upload-artifact@v3.1.0
+      - uses: actions/upload-artifact@v3.1.0
         with:
           name: sakura-paperclip-1.18.2-R0.1-SNAPSHOT
           path: build/libs/sakura-paperclip-1.18.2-R0.1-SNAPSHOT-reobf.jar
-        uses: marvinpinto/action-automatic-releases@latest
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
           automatic_release_tag: '1.18.2'
           prerelease: false
